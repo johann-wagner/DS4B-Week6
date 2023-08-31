@@ -55,3 +55,17 @@ raw_data %>%
         )
 ```
 
+This is what ChatGPT produced when I copied the entire dataset and this statement: *Write an R chunk which makes a single interesting plot from the data using ggplot , put it in the appropriate section of the .Rmd file*
+```{r}
+
+# Create a ggplot plot
+plot <- ggplot(raw_data, aes(x = TempC, y = VO2_ml_per_h, color = Sex)) +
+  geom_point() +
+  labs(title = "Oxygen Consumption vs Temperature",
+       x = "Temperature (°C)", y = "Oxygen Consumption (ml/h)",
+       color = "Sex") +
+  theme_minimal()
+
+# Display the plot
+print(plot)
+```
