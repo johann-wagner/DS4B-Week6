@@ -14,5 +14,44 @@ output:
  fig_height: 4
 ---
 # Bonus section
+
+## Loading in Tidyverse
+The tidyverse is a collection of R packages designed for data science. All packages share a similar design philosophy, grammar, and data structures.Tidyverse includes packages such as: ggplot2, dplyr, tidyr, readr, purr, tibble, stringr, lubriate, and forcats.
+
+https://www.tidyverse.org/
+
+```{r, warning = FALSE}
+library(tidyverse)
+library(skimr)
+
+```
+
 ## Loading the data
+
+```{r}
+raw_data <- read_csv("raw_data/data.csv")
+```
+
+## Exploratory Data Analysis
+
+```{r}
+raw_data %>% skim()
+```
+
+It seems like there is one categorical variable called Sex with two unique values (most likely male and female) and a variety of continous and integer data. Two variables have missing data.
+
 ## An interesting plot
+
+Let's compare the distribution of weight between both sex.
+
+```{r}
+raw_data %>% 
+        ggplot(aes(x = Sex,
+                   y = weight,
+                   colour = Sex)) +
+        geom_violin() +
+        geom_jitter(
+                alpha = 0.5
+        )
+```
+
