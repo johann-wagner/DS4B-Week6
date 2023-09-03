@@ -69,3 +69,22 @@ plot <- ggplot(raw_data, aes(x = TempC, y = VO2_ml_per_h, color = Sex)) +
 # Display the plot
 print(plot)
 ```
+
+I asked ChatGPT to produce another one:
+
+```{r another_plot}
+library(ggplot2)
+
+# Create a ggplot plot
+plot <- ggplot(raw_data, aes(x = factor(Gravid), y = weight, fill = factor(Gravid))) +
+  geom_boxplot() +
+  labs(title = "Weight Distribution by Gravid Status",
+       x = "Gravid", y = "Weight",
+       fill = "Gravid Status") +
+  theme_minimal() +
+  scale_fill_manual(values = c("gray", "blue"),
+                    labels = c("Not Gravid", "Gravid"))
+
+# Display the plot
+print(plot)
+```
